@@ -1,3 +1,12 @@
+```python
+>>> from datetime import datetime
+>>> ts = int("2147483647")
+>>> ts
+2147483647
+>>> print(datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'))
+2038-01-19 03:14:07
+```
+
 This is an implementation of POSIX time.h which solves the year 2038
 bug on systems where time_t is only 32 bits.  It is implemented in
 bog-standard ANSI C.  The latest version can be found at
@@ -10,19 +19,19 @@ to ship its own time zone table.
 Here is a list of the currently implemented functions in time64.h and
 their POSIX time.h equivalents.
 
-  time64.h                      time.h
-  --------                      ------
-  localtime64_r                 localtime_r
-  localtime64                   localtime
-  gmtime64_r                    gmtime_r
-  gmtime64                      gmtime
-  asctime64_r                   asctime_r
-  asctime64                     asctime
-  ctime64_r                     ctime_r
-  ctime64                       ctime
-  timelocal64                   mktime
-  mktime64                      mktime
-  timegm64                      timegm (a GNU extension)
+      time64.h                      time.h
+      --------                      ------
+      localtime64_r                 localtime_r
+      localtime64                   localtime
+      gmtime64_r                    gmtime_r
+      gmtime64                      gmtime
+      asctime64_r                   asctime_r
+      asctime64                     asctime
+      ctime64_r                     ctime_r
+      ctime64                       ctime
+      timelocal64                   mktime
+      mktime64                      mktime
+      timegm64                      timegm (a GNU extension)
 
 To install, simply copy time64.c and time64.h into your project and
 make use of the functions.
